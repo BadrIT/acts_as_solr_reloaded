@@ -4,6 +4,16 @@ module ActsAsSolr #:nodoc:
     include CommonMethods
     include ParserMethods
     
+    def type_field
+      classes = []
+      c = self
+      while c != ActiveRecord::Base do
+        classes << c
+        c = c.superclass
+      end
+      classes
+    end
+    
     # Finds instances of a model. Terms are ANDed by default, can be overwritten 
     # by using OR between terms
     # 
