@@ -120,6 +120,7 @@ module ActsAsSolr #:nodoc:
         :format => :objects
       }
       results.update(:facets => {'facet_fields' => []}) if options[:facets]
+      results.update(:start => solr_data.start)
       return SearchResults.new(results) if (solr_data.nil? || solr_data.total_hits == 0)
 
       configuration.update(options) if options.is_a?(Hash)

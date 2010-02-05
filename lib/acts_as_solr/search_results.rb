@@ -63,6 +63,10 @@ module ActsAsSolr #:nodoc:
         @solr_data[:highlights]
     end
 
+    def start
+      @solr_data[:start]
+    end
+
     alias docs results
     alias records results
     alias num_found total
